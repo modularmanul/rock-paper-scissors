@@ -129,8 +129,10 @@ function gameOn() {
     const gameWinner = e.detail.winner;
     if (gameWinner === 'player') {
       game.playerWins += 1;
+      game.streaks += 1;
     } else {
       game.computerWins += 1;
+      game.streaks = 0;
     }
     showGameScore();
   });
