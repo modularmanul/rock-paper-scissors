@@ -12,35 +12,15 @@ function getPlayerChoice(e) {
 }
 
 function getRoundWinner(playerChoice, computerChoice) {
-  let winner = '';
-  switch (playerChoice) {
-    case 'rock':
-      if (computerChoice === 'scissors') {
-        winner = 'player';
-      } else if (computerChoice === 'paper') {
-        winner = 'computer';
-      }
-      break;
-    case 'paper':
-      if (computerChoice === 'rock') {
-        winner = 'player';
-      } else if (computerChoice === 'scissors') {
-        winner = 'computer';
-      }
-      break;
+  if (playerChoice === computerChoice) return 'draw';
 
-    case 'scissors':
-      if (computerChoice === 'paper') {
-        winner = 'player';
-      } else if (computerChoice === 'rock') {
-        winner = 'computer';
-      }
-      break;
+  const winsAgainst = {
+    rock: 'scissors',
+    paper: 'rock',
+    scissors: 'paper',
+  };
 
-    default:
-      winner = null;
-  }
-  return winner;
+  return winsAgainst[playerChoice] === computerChoice ? 'player' : 'computer';
 }
 
 function play() {
@@ -65,7 +45,7 @@ function play() {
       } else if (round.winner === 'computer') {
         round.computerWins++;
       }
-      if (round.winner) {
+      if (round.winner !== 'draw') {
         round.count++;
         showRoundScore(round);
       }
@@ -93,13 +73,17 @@ function showRoundScore({
   computerWins,
   winner,
 }) {
+  const roundResult = {
+    player: 'You won!',
+    computer: 'You lose!',
+    draw: "It's a draw!",
+  };
   document.querySelector('.player-choice span').textContent = playerChoice;
   document.querySelector('.computer-choice span').textContent = computerChoice;
   document.querySelector('.round-count span').textContent = count;
   document.querySelector('.player-round-wins').textContent = playerWins;
   document.querySelector('.computer-round-wins').textContent = computerWins;
-  document.querySelector('.round-result').textContent =
-    winner === 'player' ? 'You won!' : 'You lost!';
+  document.querySelector('.round-result').textContent = roundResult[winner];
 }
 
 function resetRoundScore(round) {
