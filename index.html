@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="scripts.js" type="module"></script>
+    <title>Rock, paper, scissors?</title>
+  </head>
+  <body>
+    <h1 class="title">Rock, paper, scissors?</h1>
+    <h2 class="round-count">Round: <span></span></h2>
+    <div class="container player">
+      <div class="inner-container">
+        <h3>Player</h3>
+        <img
+          class="rock"
+          width="200"
+          height="200"
+          src="assets/svgs/rock.svg"
+          alt="rock"
+        />
+        <img
+          class="paper"
+          width="200"
+          height="200"
+          src="assets/svgs/paper.svg"
+          alt="paper"
+        />
+        <img
+          class="scissors"
+          width="200"
+          height="200"
+          src="assets/svgs/scissors.svg"
+          alt="scissors"
+        />
+        <p class="player-choice">Your choice: <span></span></p>
+      </div>
+      <p class="player-round-wins"></p>
+    </div>
+    <div class="container computer">
+      <div class="inner-container">
+        <h3>Computer</h3>
+        <p class="computer-choice">Computer choice: <span></span></p>
+      </div>
+      <p class="computer-round-wins"></p>
+    </div>
+    <p class="round-result"></p>
+    <div class="board">
+      <p class="game-count">Games: <span></span></p>
+      <p class="player-game-wins">Player Score: <span></span></p>
+      <p class="player-streaks">🔥<span></span></p>
+      <p class="computer-game-wins">Computer Score: <span></span></p>
+    </div>
+
+    <button id="play" type="button">Play</button>
+    <button id="reset" type="button">Reset</button>
+  </body>
+</html>
