@@ -40,15 +40,16 @@ function play() {
 
       // Get round winner
       round.winner = getRoundWinner(round.playerChoice, round.computerChoice);
-      if (round.winner === 'player') {
-        round.playerWins++;
-      } else if (round.winner === 'computer') {
-        round.computerWins++;
-      }
+
       if (round.winner !== 'draw') {
+        if (round.winner === 'player') {
+          round.playerWins++;
+        } else {
+          round.computerWins++;
+        }
         round.count++;
-        showRoundScore(round);
       }
+      showRoundScore(round);
 
       // Get game winner
       if (round.playerWins === 5 || round.computerWins === 5) {
