@@ -13,8 +13,8 @@ export default class UIManager {
     // Do not create img if choice is null; initial state after game reset
     if (computerChoice) {
       const svgElem = document.createElement('img');
-      svgElem.setAttribute('width', '200');
-      svgElem.setAttribute('height', '200');
+      svgElem.setAttribute('width', '120');
+      svgElem.setAttribute('height', '120');
       svgElem.setAttribute('src', `assets/svgs/${computerChoice}.svg`);
       svgElem.classList.add('computer-choice-svg');
       svgElem.classList.add(computerChoice);
