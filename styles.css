@@ -1,0 +1,252 @@
+:root {
+  --green: rgb(196, 255, 45);
+  --red: rgb(255, 133, 89);
+  --yellow: rgb(255, 216, 62);
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: 'Protest Revolution', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: 0.2rem;
+}
+
+body {
+  width: 100vw;
+  min-width: 44rem;
+  height: 100vh;
+  font-size: 1.6rem;
+  background-color: var(--yellow);
+  display: flex;
+  align-items: center;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  flex: auto;
+  gap: 1rem;
+  padding: 2rem;
+}
+
+.title {
+  max-width: fit-content;
+  margin: 0 auto;
+  font-family: 'Moirai One', system-ui;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 5rem;
+  text-wrap: wrap;
+}
+
+/* Scoreboard */
+.scoreboard {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.scoreboard div {
+  display: flex;
+  align-items: center;
+  min-width: max-content;
+}
+
+.scoreboard .score {
+  display: inline-block;
+  width: 5rem;
+  text-align: center;
+  font-size: 2rem;
+}
+
+/* Game controls */
+.game-controls {
+  display: flex;
+  gap: 1rem;
+}
+
+.game-controls img {
+  cursor: pointer;
+  width: 8rem;
+  height: 8rem;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.game-controls .tooltip {
+  width: 8rem;
+  height: 8rem;
+  border-radius: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.game-controls .tooltip:first-child {
+  background-color: white;
+}
+
+.game-controls .tooltip:first-child:hover {
+  background-color: var(--green);
+}
+
+.game-controls .tooltip:last-child {
+  background-color: var(--red);
+  background-color: white;
+}
+
+.game-controls .tooltip:last-child:hover {
+  background-color: var(--red);
+}
+
+/* Game area */
+.game-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.round-count {
+  font-size: 2rem;
+}
+
+.round-result {
+  font-size: 3rem;
+  height: 3rem;
+}
+
+.container-wrapper {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: fit-content;
+}
+
+.outer-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: fit-content;
+}
+
+.inner-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 2rem;
+  align-items: center;
+}
+
+.computer .inner-container {
+  width: 28rem;
+}
+
+.player-title {
+  font-size: 2rem;
+  text-align: center;
+}
+
+.svg-container {
+  min-height: 20rem;
+  flex: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.game-area img {
+  min-width: 12rem;
+  flex: auto;
+}
+
+.player img {
+  transition: transform 0.3s ease;
+  transform: rotate(90deg);
+}
+
+.player img:hover {
+  cursor: pointer;
+  transform: rotate(90deg) scale(1.1);
+}
+
+.computer img {
+  transform: rotate(-90deg);
+}
+
+.player-choice,
+.computer-choice {
+  text-transform: capitalize;
+}
+
+.computer-round-wins,
+.player-round-wins {
+  font-size: 5rem;
+  font-style: italic;
+  font-weight: 700;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+}
+
+.computer-round-wins::before,
+.player-round-wins::before {
+  content: '';
+  display: inline-block;
+  position: relative;
+  width: 3rem;
+  height: 3rem;
+  background: url(assets/svgs/medal.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* Tooltip */
+.tooltip {
+  position: relative;
+}
+
+.tooltip .tooltiptext {
+  font-family: monospace;
+  font-size: 1.6rem;
+  text-wrap: nowrap;
+  text-align: center;
+  color: white;
+  visibility: hidden;
+  min-width: 12rem;
+  background-color: black;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+
+  position: absolute;
+  left: 50%;
+  top: -25%;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
