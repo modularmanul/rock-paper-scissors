@@ -31,23 +31,27 @@ export default class GameManager {
 
     document.querySelector('#reset')?.addEventListener('click', () => {
       document
-        .querySelector('.board')
+        .querySelector('.scoreboard')
         ?.dispatchEvent(new CustomEvent('gameReset'));
     });
 
-    document.querySelector('.board')?.addEventListener('gameReset', () => {
+    document.querySelector('.scoreboard')?.addEventListener('gameReset', () => {
       this.game.reset();
       UIManager.updateGameUI(this.game);
+      this.round.reset();
+      UIManager.updateRoundUI(this.round);
     });
 
-    document.querySelector('.board')?.addEventListener('gameResult', (e) => {
-      this.game.updateScore(e.detail.winner);
-      UIManager.updateGameUI(this.game);
-    });
+    document
+      .querySelector('.scoreboard')
+      ?.addEventListener('gameResult', (e) => {
+        this.game.updateScore(e.detail.winner);
+        UIManager.updateGameUI(this.game);
+      });
   }
 
   endGame(winner) {
-    document.querySelector('.board')?.dispatchEvent(
+    document.querySelector('.scoreboard')?.dispatchEvent(
       new CustomEvent('gameResult', {
         detail: { winner },
       })

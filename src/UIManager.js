@@ -4,6 +4,24 @@ export default class UIManager {
     if (el) el.textContent = value;
   }
 
+  static setComputerChoiceSvg(computerChoice) {
+    const svgContainer = document.querySelector('.computer .svg-container');
+    const existingSvgElem = document.querySelector('.computer-choice-svg');
+    if (existingSvgElem) {
+      svgContainer.removeChild(existingSvgElem);
+    }
+    // Do not create img if choice is null; initial state after game reset
+    if (computerChoice) {
+      const svgElem = document.createElement('img');
+      svgElem.setAttribute('width', '200');
+      svgElem.setAttribute('height', '200');
+      svgElem.setAttribute('src', `assets/svgs/${computerChoice}.svg`);
+      svgElem.classList.add('computer-choice-svg');
+      svgElem.classList.add(computerChoice);
+      svgContainer.appendChild(svgElem);
+    }
+  }
+
   static updateRoundUI(round) {
     const {
       playerChoice,
@@ -16,7 +34,7 @@ export default class UIManager {
 
     const roundMessages = {
       player: 'You won!',
-      computer: 'You lose!',
+      computer: 'You lost!',
       draw: "It's a draw!",
     };
 
@@ -26,12 +44,13 @@ export default class UIManager {
     UIManager.setText('.player-round-wins', playerWins);
     UIManager.setText('.computer-round-wins', computerWins);
     UIManager.setText('.round-result', roundMessages[winner]);
+    UIManager.setComputerChoiceSvg(computerChoice);
   }
 
   static updateGameUI(game) {
-    UIManager.setText('.game-count span', game.count);
-    UIManager.setText('.player-game-wins span', game.playerWins);
-    UIManager.setText('.computer-game-wins span', game.computerWins);
-    UIManager.setText('.player-streaks span', game.streaks);
+    UIManager.setText('.game-count .score', game.count);
+    UIManager.setText('.player-game-wins .score', game.playerWins);
+    UIManager.setText('.computer-game-wins .score', game.computerWins);
+    UIManager.setText('.player-streaks .score', game.streaks);
   }
 }
