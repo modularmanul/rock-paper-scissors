@@ -4,56 +4,122 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
-    <script src="scripts.js" type="module"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Protest+Revolution&display=swap"
+      rel="stylesheet"
+    />
+    <script src="src/GameManager.js" type="module"></script>
     <title>Rock, paper, scissors?</title>
   </head>
   <body>
-    <h1 class="title">Rock, paper, scissors?</h1>
-    <h2 class="round-count">Round: <span></span></h2>
-    <div class="container player">
-      <div class="inner-container">
-        <h3>Player</h3>
-        <img
-          class="rock"
-          width="200"
-          height="200"
-          src="assets/svgs/rock.svg"
-          alt="rock"
-        />
-        <img
-          class="paper"
-          width="200"
-          height="200"
-          src="assets/svgs/paper.svg"
-          alt="paper"
-        />
-        <img
-          class="scissors"
-          width="200"
-          height="200"
-          src="assets/svgs/scissors.svg"
-          alt="scissors"
-        />
-        <p class="player-choice">Your choice: <span></span></p>
+    <main>
+      <h1 class="title">Rock, paper, scissors?</h1>
+      <div class="scoreboard">
+        <div class="tooltip game-count">
+          <span class="tooltiptext">Games played</span>
+          <img
+            width="30"
+            height="30"
+            src="assets/svgs/game.svg"
+            alt="trophy"
+          />:<span class="score"></span>
+        </div>
+        <div class="tooltip player-game-wins">
+          <span class="tooltiptext">Your score</span>
+          <img
+            width="30"
+            height="30"
+            src="assets/svgs/trophy.svg"
+            alt="trophy"
+          />:<span class="score"></span>
+        </div>
+        <div class="tooltip player-streaks">
+          <span class="tooltiptext">Winning streaks</span>
+          <img
+            width="30"
+            height="30"
+            src="assets/svgs/streaks.svg"
+            alt="streaks"
+          />:
+          <span class="score"></span>
+        </div>
+        <div class="tooltip computer-game-wins">
+          <span class="tooltiptext">Computer score</span>
+          <img
+            width="30"
+            height="30"
+            src="assets/svgs/computer.svg"
+            alt="computer"
+          />:<span class="score"></span>
+        </div>
       </div>
-      <p class="player-round-wins"></p>
-    </div>
-    <div class="container computer">
-      <div class="inner-container">
-        <h3>Computer</h3>
-        <p class="computer-choice">Computer choice: <span></span></p>
+      <div class="game-controls">
+        <div id="play" class="tooltip">
+          <img
+            width="75"
+            height="75"
+            src="assets/svgs/play.svg"
+            alt="trophy"
+          /><span class="tooltiptext">Play</span>
+        </div>
+        <div id="reset" class="tooltip">
+          <img
+            width="75"
+            height="75"
+            src="assets/svgs/reset.svg"
+            alt="trophy"
+          /><span class="tooltiptext">Reset</span>
+        </div>
       </div>
-      <p class="computer-round-wins"></p>
-    </div>
-    <p class="round-result"></p>
-    <div class="board">
-      <p class="game-count">Games: <span></span></p>
-      <p class="player-game-wins">Player Score: <span></span></p>
-      <p class="player-streaks">🔥<span></span></p>
-      <p class="computer-game-wins">Computer Score: <span></span></p>
-    </div>
-
-    <button id="play" type="button">Play</button>
-    <button id="reset" type="button">Reset</button>
+      <div class="game-area">
+        <p class="round-count">Round: <span></span></p>
+        <p class="round-result"></p>
+        <div class="container-wrapper">
+          <div class="outer-container player">
+            <div class="inner-container">
+              <h2 class="player-title">Player</h2>
+              <div class="svg-container">
+                <img
+                  data-choice="rock"
+                  class="player-choice-svg rock"
+                  width="200"
+                  height="200"
+                  src="assets/svgs/rock.svg"
+                  alt="rock"
+                />
+                <img
+                  data-choice="paper"
+                  class="player-choice-svg paper"
+                  width="200"
+                  height="200"
+                  src="assets/svgs/paper.svg"
+                  alt="paper"
+                />
+                <img
+                  data-choice="scissors"
+                  class="player-choice-svg scissors"
+                  width="200"
+                  height="200"
+                  src="assets/svgs/scissors.svg"
+                  alt="scissors"
+                />
+              </div>
+              <p class="player-choice">Your choice: <span></span></p>
+            </div>
+            <p class="player-round-wins"></p>
+          </div>
+          <div class="outer-container computer">
+            <div class="inner-container">
+              <h2 class="player-title">Computer</h2>
+              <div class="svg-container"></div>
+              <p class="computer-choice">Computer choice: <span></span></p>
+            </div>
+            <p class="computer-round-wins"></p>
+          </div>
+        </div>
+      </div>
+    </main>
   </body>
 </html>
