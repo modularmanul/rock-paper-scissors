@@ -14,63 +14,98 @@
     <title>Rock, paper, scissors?</title>
   </head>
   <body>
-    <main>
+    <header>
       <h1 class="title">Rock, paper, scissors?</h1>
+    </header>
+    <main>
+      <div class="overlay"></div>
+      <div class="popup-container">
+        <p class="popup-message no-select"></p>
+        <div class="popup no-select"></div>
+      </div>
+      <div class="info tooltip">
+        <span class="tooltip-text"
+          >Win 5 rounds to claim a medal, 3 games a trophy!</span
+        >
+        <img
+          width="35"
+          height="35"
+          class="no-select"
+          src="assets/svgs/info.svg"
+          alt="information"
+        />
+      </div>
       <div class="scoreboard">
-        <div class="tooltip game-count">
-          <span class="tooltiptext">Games played</span>
+        <div class="game-count tooltip">
+          <span class="tooltip-text">Total games</span>
           <img
-            width="30"
-            height="30"
+            width="35"
+            height="35"
+            class="no-select"
             src="assets/svgs/game.svg"
             alt="trophy"
           />:<span class="score"></span>
         </div>
-        <div class="tooltip player-game-wins">
-          <span class="tooltiptext">Your score</span>
+        <div class="player-trophy tooltip">
+          <span class="tooltip-text">Your trophies</span>
           <img
-            width="30"
-            height="30"
+            width="35"
+            height="35"
+            class="no-select"
             src="assets/svgs/trophy.svg"
             alt="trophy"
           />:<span class="score"></span>
         </div>
-        <div class="tooltip player-streaks">
-          <span class="tooltiptext">Winning streaks</span>
+        <div class="player-game-wins tooltip">
+          <span class="tooltip-text">Your score</span>
           <img
-            width="30"
-            height="30"
+            width="35"
+            height="35"
+            class="no-select"
+            src="assets/svgs/medal.svg"
+            alt="medal"
+          />:<span class="score"></span>
+        </div>
+        <div class="player-streaks tooltip">
+          <span class="tooltip-text">Highest win streaks</span>
+          <img
+            width="35"
+            height="35"
+            class="no-select"
             src="assets/svgs/streaks.svg"
             alt="streaks"
           />:
           <span class="score"></span>
         </div>
-        <div class="tooltip computer-game-wins">
-          <span class="tooltiptext">Computer score</span>
+        <div class="computer-game-wins tooltip">
+          <span class="tooltip-text">Computer score</span>
           <img
-            width="30"
-            height="30"
+            width="35"
+            height="35"
+            class="no-select"
             src="assets/svgs/computer.svg"
             alt="computer"
           />:<span class="score"></span>
         </div>
       </div>
       <div class="game-controls">
-        <div id="play" class="tooltip">
+        <div id="play" class="control tooltip">
           <img
-            width="75"
-            height="75"
+            width="60"
+            height="60"
+            class="no-select"
             src="assets/svgs/play.svg"
             alt="trophy"
-          /><span class="tooltiptext">Play</span>
+          /><span class="tooltip-text">Play</span>
         </div>
-        <div id="reset" class="tooltip">
+        <div id="reset" class="control tooltip disabled">
           <img
-            width="75"
-            height="75"
+            width="60"
+            height="60"
+            class="no-select"
             src="assets/svgs/reset.svg"
             alt="trophy"
-          /><span class="tooltiptext">Reset</span>
+          /><span class="tooltip-text">Reset</span>
         </div>
       </div>
       <div class="game-area">
@@ -82,35 +117,62 @@
               <h2 class="player-title">Player</h2>
               <div class="svg-container">
                 <img
+                  width="120"
+                  height="120"
                   data-choice="rock"
-                  class="player-choice-svg rock"
+                  class="choice-svg rock no-select"
                   src="assets/svgs/rock.svg"
                   alt="rock"
                 />
                 <img
+                  width="120"
+                  height="120"
                   data-choice="paper"
-                  class="player-choice-svg paper"
+                  class="choice-svg paper no-select"
                   src="assets/svgs/paper.svg"
                   alt="paper"
                 />
                 <img
+                  width="120"
+                  height="120"
                   data-choice="scissors"
-                  class="player-choice-svg scissors"
+                  class="choice-svg scissors no-select"
                   src="assets/svgs/scissors.svg"
                   alt="scissors"
                 />
               </div>
-              <p class="player-choice">Your choice: <span></span></p>
+              <p class="player-choice">Choice: <span></span></p>
             </div>
-            <p class="player-round-wins"></p>
+            <div class="round-wins tooltip">
+              <img
+                width="35"
+                height="35"
+                class="star no-select"
+                src="assets/svgs/star.svg"
+                alt="star"
+              />
+              <p class="player-round-wins"></p>
+              <span class="tooltip-text">Your round wins</span>
+            </div>
           </div>
+          <p class="vs">vs</p>
           <div class="outer-container computer">
             <div class="inner-container">
               <h2 class="player-title">Computer</h2>
               <div class="svg-container"></div>
-              <p class="computer-choice">Computer choice: <span></span></p>
+              <p class="computer-choice">Choice: <span></span></p>
             </div>
-            <p class="computer-round-wins"></p>
+            <div class="round-wins tooltip">
+              <img
+                width="35"
+                height="35"
+                class="star no-select"
+                src="assets/svgs/star.svg"
+                alt="star"
+              />
+              <p class="computer-round-wins"></p>
+              <span class="tooltip-text">Computer round wins</span>
+            </div>
           </div>
         </div>
       </div>
